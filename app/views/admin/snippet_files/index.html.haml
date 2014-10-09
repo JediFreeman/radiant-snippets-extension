@@ -9,9 +9,9 @@
           - thead.title_header do
             %th.name= t('snippet')
     %tbody
-      - if !@snippet_files.blank?
+      - if @snippet_files.any?
         - @snippet_files.each do |snippet|
-          %tr[snippet]
+          %tr.snippet_file{ :id => "snippet_file_#{snippet.name}" }
             - render_region :tbody, :locals => {:snippet => snippet} do |tbody|
               - tbody.title_cell do
                 %td.name
